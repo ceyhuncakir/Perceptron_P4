@@ -34,7 +34,7 @@ class NeuronNetworkTesting(unittest.TestCase):
             output = neural_network.feed_forward(combination[input])
             truth_output.append(output)
 
-        print(truth_output)
+        self.assertTrue(truth_table, truth_output)
 
     def test_xor_gate(self):
 
@@ -63,7 +63,7 @@ class NeuronNetworkTesting(unittest.TestCase):
             output = neural_network.feed_forward(combination[input])
             truth_output.append(output)
 
-        print(truth_output)
+        self.assertTrue(truth_table, truth_output)
 
     def test_half_adder_gate(self):
 
@@ -94,7 +94,7 @@ class NeuronNetworkTesting(unittest.TestCase):
             output = neural_network.feed_forward(combination[input])
             truth_output.append(output)
 
-        print(truth_output)
+        self.assertTrue(truth_table, truth_output)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -14,7 +14,6 @@ class NeuronLayer:
         return [neuron for neuron in self.neurons]
 
     def error(self, output, next_layer_weights, next_layer_error):
-        self.errorNextNeurons = []  # Reset the errors of the neurons of the next layer
         if next_layer_weights and next_layer_error:
             for i in range(len(self.neurons)):
                 nextWeights = [weights[i] for weights in next_layer_weights]

@@ -7,6 +7,9 @@ class NeuronNetwork:
 
         """
         functie die van de gegeven input door het netwerk laat lopen om tot een uitkomst te komen
+
+        params: (list) inputs
+        returns: (list) output
         """
         self.inputs = inputs
         inputs = self.inputs
@@ -23,6 +26,16 @@ class NeuronNetwork:
         return act_output
 
     def train(self, inputs, targets, eta):
+
+        """
+        dit functie zorgt er voor dat de nn backpropagated word
+
+        params:
+            (list) inputs,
+            (list) targets,
+            (float) eta
+        """
+
         for input in range(len(inputs)):
             self.feed_forward(inputs[input])
             for layer in range(len(self.neuron_layers)):
@@ -31,12 +44,29 @@ class NeuronNetwork:
                     self.neuron_layers[layer - 1].error(targets[input], [], [])
                 else:
                     self.neuron_layers[layer - 1].error(targets[input], self.neuron_layers[layer].weights, self.neuron_layers[layer].errors)
-            for layer in range(len(self.neuron_layers)):
-                layer = (layer * - 1)
-                self.neuron_layers[layer - 1].learn(eta)
-                self.neuron_layers[layer - 1].update()
+            self.update_network(eta)
+
+    def update_network(self, eta):
+
+        """
+        dit functie zorgt er voor dat de layers leeren en updaten met de bepaalde errors
+        params: (float) eta
+        """
+
+        for layer in range(len(self.neuron_layers)):
+            layer = (layer * - 1)
+            self.neuron_layers[layer - 1].learn(eta)
+            self.neuron_layers[layer - 1].update()
 
     def score(self, inputs, targets):
+
+        """
+        dit functie calculeert de score tussen de inputs en targets
+        params:
+            (list) inputs,
+            (list) targets
+        """
+
         equal = 0
         for i in range(len(inputs)):
             output = self.feed_forward(inputs[i])
