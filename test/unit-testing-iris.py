@@ -19,7 +19,7 @@ class IrisTesting(unittest.TestCase):
 
         """
         dit functie zorgt ervoor dat de network getest word op de dataset van de iris.
-        in dit geval kunnen van de network output kunnen zien of het een setosa of versicolour is aan de hand van de input data
+        in dit geval kunnen van de network output kunnen zien of het een setosa, versicolour, of virginica is aan de hand van de input data
         verder splitten we de data in een train set en een test set
         """
 
@@ -62,8 +62,8 @@ class IrisTesting(unittest.TestCase):
             else:
                 truth_output.append([1])
 
-        print("\nOutput setosa | versicolour | target\n", targetsTest)
-        print("\nOutput setosa | versicolour | predicted\n", truth_output)
+        print("\nOutput setosa | versicolour | virginica | target\n", targetsTest)
+        print("\nOutput setosa | versicolour | virginica | predicted\n", truth_output)
 
         print("\n\ntrain score:", neural_network.score(inputsTrain, targetsTrain))
         print("\n\ntest score:", neural_network.score(inputsTest, targetsTest))
