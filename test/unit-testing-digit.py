@@ -19,9 +19,9 @@ class DigitTesting(unittest.TestCase):
     def test_digits(self):
 
         """
-        dit functie zorgt ervoor dat de network getest word op de dataset van de iris.
+        dit functie zorgt ervoor dat de network getest word op de dataset van de digit set.
         aangezien de target groter dan een 1 kan zijn gebruiken we hiervoor de pd.get_dummies functie ervoor om een 0 of een 1 te krijgen.
-        verder splitten we de data in een train set en een test set 
+        verder splitten we de data in een train set en een test set
         """
 
         data = load_digits(as_frame=True)

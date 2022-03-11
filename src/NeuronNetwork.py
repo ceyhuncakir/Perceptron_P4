@@ -81,4 +81,4 @@ class NeuronNetwork:
         functie om informatie van de metwork te krijgen
         """
 
-        return f"layers: {self.neuron_layers} | inputs: {self.inputs}"
+        return f"layers: {self.neuron_layers} / inputs: {self.inputs}"
